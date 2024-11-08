@@ -18,7 +18,7 @@ def submit_form():
     print(data)
     df = pd.DataFrame.from_dict([data])
 
-    df.to_csv("data.csv")
+    #df.to_csv("data.csv")
     # cur.execute(
     #     "INSERT INTO your_table_name (column1, column2, ...) VALUES (%s, %s, ...)",
     #     (data['field1'], data['field2'], ...)
