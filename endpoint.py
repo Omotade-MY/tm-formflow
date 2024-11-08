@@ -32,7 +32,7 @@ def submit_form():
     print(data)
 
     bytes_content = io.BytesIO()
-    now = datetime.now().strftime("%y_%m_%d_%H:%M")
+    now = datetime.now().strftime("%y_%m_%d_%H_%M")
     try:
         print("HEEEEREREE")
         content = pd.DataFrame.from_dict([data])
