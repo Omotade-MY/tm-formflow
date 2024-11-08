@@ -32,19 +32,19 @@ def submit_form():
     print(data)
 
     bytes_content = io.BytesIO()
-    now = datetime.now().strftime("%y-%m-%d %H:%M")
+    now = datetime.now().strftime("%y_%m_%d_%H:%M")
     try:
         print("HEEEEREREE")
         content = pd.DataFrame.from_dict([data])
         content.to_csv(bytes_content, index=False)
     # Upload to github
         git_file = f'data-{now}.csv'
-        repo.create_file(git_file, "committing files", bytes_content.getvalue(), branch="main")
+        repo.create_file(git_file, "committing files", bytes_content.getvalue(), branch="exp")
     except:
         git_file = f'dump{now}.pkl'
         pickle.dump(data, bytes_content)
 
-        repo.create_file(git_file, "committing files", bytes_content.getvalue(), branch="main")
+        repo.create_file(git_file, "committing files", bytes_content.getvalue(), branch="exp")
     print(git_file + ' CREATED')
 
     #df.to_csv("data.csv")
