@@ -19,7 +19,13 @@ repo = g.get_user().get_repo(GITHUB_REPO)
 app = Flask(__name__)
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
-    data = request.json  
+    query = request.args
+    first_name = query.get('first_name')
+    last_name = query.get('last_name')
+    data = {
+        'first_name' : first_name,
+        'last_name' : last_name
+    }
     # dbname='your_dbname'
     # user='your_username'
     # password='your_password'
