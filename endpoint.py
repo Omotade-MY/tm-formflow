@@ -1,6 +1,7 @@
 from flask import Flask, request 
 from sqlalchemy import create_engine
 import pandas as pd
+import os
 
 app = Flask(__name__)
 @app.route('/submit_form', methods=['POST'])
@@ -30,4 +31,7 @@ def submit_form():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    host = '0.0.0.0'
+    # Use the environment variable 'PORT', defaulting to 5000
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host=host, port=port, debug=True)
