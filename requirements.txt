@@ -3,3 +3,4 @@ sqlalchemy
 flask
 python-dotenv
 pandas
+PyGithub
